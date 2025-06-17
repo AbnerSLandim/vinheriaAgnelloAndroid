@@ -19,6 +19,8 @@ class ProdutoViewModel(application: Application) : AndroidViewModel(application)
     var nome = ""
     var descricao = ""
     var preco = ""
+    var categoria = ""
+    var marca = ""
 
     init {
         carregarProdutos()
@@ -35,7 +37,9 @@ class ProdutoViewModel(application: Application) : AndroidViewModel(application)
             val novoProduto = Produto(
                 nome = nome,
                 descricao = descricao,
-                preco = preco.toDoubleOrNull() ?: 0.0
+                preco = preco.toDoubleOrNull() ?: 0.0,
+                categoria = categoria,
+                marca = marca
             )
             repository.salvar(novoProduto)
             carregarProdutos()
